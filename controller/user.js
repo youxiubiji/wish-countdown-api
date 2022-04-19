@@ -3,6 +3,21 @@ const bcrypt = require("bcryptjs"); //加密解密
 const userUtil = require("../utils/user");
 
 /**
+ * 微信静默登录
+ * @param {*} ctx
+ */
+
+const UserWeiXin = async (ctx) => {
+  const { code } = ctx.request.body;
+  console.log(code);
+  // ctx.body = {
+  //   code: 200,
+  //   data: code,
+  //   msg: "success",
+  // };
+};
+
+/**
  * 用户注册
  * @param {*} ctx
  */
@@ -86,6 +101,7 @@ const UserInfo = async (ctx) => {
   }
 };
 module.exports = {
+  UserWeiXin,
   UserRegister,
   UserLogin,
   UserInfo,

@@ -70,7 +70,7 @@ app.use((ctx, next) => {
 // token拦截
 app.use(
     koaJwt({ secret: tokenConfig.secret }).unless({
-        path: [/^\/users\/register/, /^\/users\/login/],
+        path: [/^\/users\/wxlogin/, /^\/users\/login/],
     })
 )
 

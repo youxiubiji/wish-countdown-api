@@ -1,2 +1,2 @@
-# wish-countdown-api
-心愿倒计时接口
+# koa-mysql-template
+koa+mysql模板

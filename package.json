@@ -1,0 +1,46 @@
+{
+  "name": "koa-mysql-template",
+  "version": "1.0.0",
+  "description": "koa+mysql模板",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "./node_modules/.bin/nodemon bin/www",
+    "prd": "pm2 start bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youxiubiji/koa-mysql-template.git"
+  },
+  "keywords": [],
+  "author": "youxiubiji@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youxiubiji/koa-mysql-template/issues"
+  },
+  "homepage": "https://github.com/youxiubiji/koa-mysql-template#readme",
+  "dependencies": {
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^10.1.1",
+    "bcryptjs": "^2.4.3",
+    "debug": "^4.3.4",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-json": "^2.0.2",
+    "koa-jwt": "^4.0.3",
+    "koa-log4": "^2.3.2",
+    "koa-parameter": "^3.0.1",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "koa2-swagger-ui": "^5.5.0",
+    "multer": "^1.4.4",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0",
+    "swagger-jsdoc": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,2 @@
+[2022-01-07T16:45:59.861] [INFO] access - ::1 - - "GET / HTTP/1.1" 200 79 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+[2022-01-07T16:46:00.198] [INFO] access - ::1 - - "GET /favicon.ico HTTP/1.1" 200 79 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"

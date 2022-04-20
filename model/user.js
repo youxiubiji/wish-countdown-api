@@ -1,27 +1,31 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const { DataTypes, Model } = require("sequelize"); // 导入内置数据类型
 const sequelize = require("../db");
 
-const User = sequelize.define("User", {
-  // 在这里定义模型属性
-  id: {
-    type: DataTypes.UUID, //类型
-    primaryKey: true, //主键
-    unique: {
-      msg: "id不能相同",
-    }, // 设置为true时，会为列添加唯一约束
-    comment: "id",
-  },
-  openid: {
-    type: DataTypes.STRING(50),
-    unique: {
-      msg: "用户已存在",
+class User extends Model {}
+
+User.init(
+  {
+    // 在这里定义模型属性
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV1,
     },
-    comment: "用户openid",
+    openid: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+    },
+    platform: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
-  platform: {
-    type: DataTypes.STRING(50),
-    comment: "平台标识",
-  },
-});
+  {
+    // 这是其他模型参数
+    sequelize, // 我们需要传递连接实例
+    modelName: "User", // 我们需要选择模型名称
+  }
+);
 
 module.exports = User;

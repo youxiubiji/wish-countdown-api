@@ -91,8 +91,10 @@ app.use(parameter(app));
 // router
 const users = require("./routes/user");
 const upload = require("./routes/upload");
+const wish = require("./routes/wish");
 app.use(users.routes(), users.allowedMethods());
 app.use(upload.routes(), upload.allowedMethods());
+app.use(wish.routes(), wish.allowedMethods());
 
 // 应用日志
 app.on("error", (err, ctx) => {

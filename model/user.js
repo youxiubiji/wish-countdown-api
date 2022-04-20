@@ -9,7 +9,7 @@ User.init(
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: DataTypes.UUIDV1,
+      defaultValue: DataTypes.UUIDV4,
     },
     openid: {
       type: DataTypes.STRING,
@@ -19,6 +19,7 @@ User.init(
     platform: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      comment:'平台标识'
     },
   },
   {

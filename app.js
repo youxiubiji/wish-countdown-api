@@ -92,9 +92,11 @@ app.use(parameter(app));
 const users = require("./routes/user");
 const upload = require("./routes/upload");
 const wish = require("./routes/wish");
+const quote = require("./routes/quote");
 app.use(users.routes(), users.allowedMethods());
 app.use(upload.routes(), upload.allowedMethods());
 app.use(wish.routes(), wish.allowedMethods());
+app.use(quote.routes(), quote.allowedMethods());
 
 // 应用日志
 app.on("error", (err, ctx) => {

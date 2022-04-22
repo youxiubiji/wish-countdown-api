@@ -75,7 +75,7 @@ app.use((ctx, next) => {
 // token拦截
 app.use(
   koaJwt({ secret: tokenConfig.secret }).unless({
-    path: [/^\/user\/wxlogin/],
+    path: [/^\/user\/wxlogin/,/^\/quote\/add/,/^\/quote\/info/],
   })
 );
 

@@ -1,4 +1,4 @@
-const Quote = require("../model/wish");
+const Quote = require("../model/quote");
 
 const QuoteAdd = async (ctx) => {
   try {
@@ -25,7 +25,7 @@ const QuoteAdd = async (ctx) => {
 const QuoteInfo = async (ctx) => {
   try {
     const list = await Quote.findAll();
-    const item = list[Math.floor(Math.random()*items.length)];
+    const item = list[Math.floor(Math.random()*list.length)];
     ctx.success(item)
   } catch (error) {
     ctx.fail();

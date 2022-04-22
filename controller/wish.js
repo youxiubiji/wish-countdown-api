@@ -71,14 +71,9 @@ const WishDelete = async (ctx) => {
 const WishInfo = async (ctx) => {
   try {
     const { id } = ctx.request.query;
-    const { authorization } = ctx.header;
-    const user = await userUtil.verifyToken(
-      authorization.replace("Bearer ", "")
-    );
     const info = await Wish.findOne({
       where: {
         id,
-        userId: user.id,
       },
     });
     ctx.success(info);

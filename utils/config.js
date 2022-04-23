@@ -11,7 +11,7 @@ const token = {
 //   password: "123456",
 // };
 const Databases = {
-  host: "localhost",
+  host: "1.117.31.97",
   name: "wish",
   user: "wish",
   password: "ZAF2XMHT6DY2Wwjk",

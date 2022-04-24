@@ -7,14 +7,14 @@ const reponseBody = () => {
     ctx.success = (data) => {
       ctx.body = {
         code: 200,
-        msg: "success",
+        msg: "获取成功",
         data,
       };
     };
     ctx.fail = (msg) => {
       ctx.body = {
         code: 500,
-        msg: msg || "fail",
+        msg: msg || "程序异常，请稍后再试吧~",
       };
     };
     await next();

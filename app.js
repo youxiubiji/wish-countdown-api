@@ -75,7 +75,7 @@ app.use((ctx, next) => {
 // token拦截
 app.use(
   koaJwt({ secret: tokenConfig.secret }).unless({
-    path: [/^\/user\/wxlogin/,/^\/quote\/add/,/^\/quote\/info/],
+    path: [/^\/user\/wxlogin/, /^\/quote\/add/, /^\/quote\/info/],
   })
 );
 
@@ -90,11 +90,11 @@ app.use(parameter(app));
 
 // router
 const users = require("./routes/user");
-const upload = require("./routes/upload");
+// const upload = require("./routes/upload");
 const wish = require("./routes/wish");
 const quote = require("./routes/quote");
 app.use(users.routes(), users.allowedMethods());
-app.use(upload.routes(), upload.allowedMethods());
+// app.use(upload.routes(), upload.allowedMethods());
 app.use(wish.routes(), wish.allowedMethods());
 app.use(quote.routes(), quote.allowedMethods());
 

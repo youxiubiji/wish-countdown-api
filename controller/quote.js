@@ -1,5 +1,9 @@
 const Quote = require("../model/quote");
 
+/**
+ * 新增名言
+ * @param {*} ctx
+ */
 const QuoteAdd = async (ctx) => {
   try {
     const { content, author } = ctx.request.body;
@@ -22,11 +26,15 @@ const QuoteAdd = async (ctx) => {
   }
 };
 
+/**
+ * 获取单个名言
+ * @param {*} ctx
+ */
 const QuoteInfo = async (ctx) => {
   try {
     const list = await Quote.findAll();
-    const item = list[Math.floor(Math.random()*list.length)];
-    ctx.success(item)
+    const item = list[Math.floor(Math.random() * list.length)];
+    ctx.success(item);
   } catch (error) {
     ctx.fail();
   }

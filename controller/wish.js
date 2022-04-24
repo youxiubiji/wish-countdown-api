@@ -1,6 +1,10 @@
 const Wish = require("../model/wish");
 const userUtil = require("../utils/user");
 
+/**
+ * 手动增加心愿
+ * @param {*} ctx
+ */
 const WishAdd = async (ctx) => {
   try {
     const { title, date } = ctx.request.body;
@@ -20,13 +24,18 @@ const WishAdd = async (ctx) => {
     if (created) {
       ctx.success(wish);
     } else {
-      ctx.fail("心愿已存在");
+      ctx.fail("亲，您已有相同的心愿了哦~");
     }
   } catch (error) {
     ctx.fail();
   }
 };
 
+
+/**
+ * 编辑心愿
+ * @param {*} ctx
+ */
 const WishEdit = async (ctx) => {
   try {
     const { id, title, date } = ctx.request.body;
@@ -49,6 +58,10 @@ const WishEdit = async (ctx) => {
   }
 };
 
+/**
+ * 删除心愿
+ * @param {*} ctx
+ */
 const WishDelete = async (ctx) => {
   try {
     const { id } = ctx.request.body;
@@ -68,6 +81,10 @@ const WishDelete = async (ctx) => {
   }
 };
 
+/**
+ * 获取心愿详情
+ * @param {*} ctx
+ */
 const WishInfo = async (ctx) => {
   try {
     const { id } = ctx.request.query;
@@ -82,6 +99,10 @@ const WishInfo = async (ctx) => {
   }
 };
 
+/**
+ * 获取我的所有心愿
+ * @param {*} ctx
+ */
 const WishAll = async (ctx) => {
   try {
     const { authorization } = ctx.header;

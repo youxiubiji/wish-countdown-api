@@ -75,7 +75,13 @@ app.use((ctx, next) => {
 // token拦截
 app.use(
   koaJwt({ secret: tokenConfig.secret }).unless({
-    path: [/^\/user\/wxlogin/, /^\/quote\/add/, /^\/quote\/info/],
+    path: [
+      /^\/user\/wxlogin/,
+      /^\/quote\/add/,
+      /^\/quote\/info/,
+      /^\/account\/register/,
+      /^\/account\/login/,
+    ],
   })
 );
 
@@ -93,10 +99,12 @@ const users = require("./routes/user");
 // const upload = require("./routes/upload");
 const wish = require("./routes/wish");
 const quote = require("./routes/quote");
+const account = require("./routes/account");
 app.use(users.routes(), users.allowedMethods());
 // app.use(upload.routes(), upload.allowedMethods());
 app.use(wish.routes(), wish.allowedMethods());
 app.use(quote.routes(), quote.allowedMethods());
+app.use(account.routes(), account.allowedMethods());
 
 // 应用日志
 app.on("error", (err, ctx) => {

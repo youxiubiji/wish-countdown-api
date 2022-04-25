@@ -1,5 +1,10 @@
 const Router = require("@koa/router");
-const { QuoteAdd, QuoteInfo } = require("../controller/quote");
+const {
+  QuoteAdd,
+  QuoteInfo,
+  QuoteEdit,
+  QuoteList,
+} = require("../controller/quote");
 
 const router = new Router({
   prefix: "/quote",
@@ -53,5 +58,9 @@ router.post("/add", QuoteAdd);
  *         description: "error"
  */
 router.get("/info", QuoteInfo);
+
+router.post("/edit", QuoteEdit);
+
+router.post("/list", QuoteList);
 
 module.exports = router;

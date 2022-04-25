@@ -22,10 +22,11 @@ const swaggerDefinition = {
             bearerAuth: [],
         },
     ],
-    host: 'wish.youxiubiji.com', // 想着改这里，如果不修改，那么接口文档访问地址为：localhost:3000/swagger
+    host: 'localhost:5000', // 想着改这里，如果不修改，那么接口文档访问地址为：localhost:3000/swagger
+    // host: 'wish.youxiubiji.com', // 想着改这里，如果不修改，那么接口文档访问地址为：localhost:3000/swagger
     // 根路由
     basePath: '/', // Base path (optional)
-    schemes: ['https', 'http'],
+    schemes: ['http', 'https'],
 }
 const options = {
     swaggerDefinition,

@@ -25,6 +25,26 @@ const QuoteAdd = async (ctx) => {
     ctx.fail();
   }
 };
+/**
+ * 编辑名言
+ * @param {*} ctx
+ */
+const QuoteEdit = async (ctx) => {
+  try {
+    const { id, content, author } = ctx.request.body;
+    await Quote.update(
+      { content, author },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+    ctx.success();
+  } catch (error) {
+    ctx.fail();
+  }
+};
 
 /**
  * 获取单个名言
@@ -39,8 +59,31 @@ const QuoteInfo = async (ctx) => {
     ctx.fail();
   }
 };
+/**
+ * 名言列表
+ */
+
+const QuoteList = async (ctx) => {
+  try {
+    const { offset, limit } = ctx.request.body;
+    const { count, rows } = await Quote.findAndCountAll({
+      offset,
+      limit,
+    });
+    ctx.success({
+      rows,
+      count,
+      offset,
+      limit,
+    });
+  } catch (error) {
+    ctx.fail();
+  }
+};
 
 module.exports = {
   QuoteAdd,
+  QuoteEdit,
   QuoteInfo,
+  QuoteList,
 };

@@ -14,7 +14,7 @@ const Databases = {
   host: "1.117.31.97",
   name: "wish",
   user: "wish",
-  password: "ZAF2XMHT6DY2Wwjk",
+  password: "GjmMj8aPj8NjDDkT",
 };
 //小程序信息
 const miniprogram = {

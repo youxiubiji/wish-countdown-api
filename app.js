@@ -111,4 +111,6 @@ app.on("error", (err, ctx) => {
   logger.error(err);
 });
 
-module.exports = app;
+app.listen(5000, () => {
+  console.info(`服务启动：http://localhost:5000`)
+})

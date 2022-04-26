@@ -4,9 +4,9 @@
   "description": "koa+mysql模板",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/www",
-    "dev": "./node_modules/.bin/nodemon bin/www",
-    "prd": "pm2 start bin/www",
+    "start": "node app.js",
+    "dev": "./node_modules/.bin/nodemon app.js",
+    "prd": "pm2 start app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

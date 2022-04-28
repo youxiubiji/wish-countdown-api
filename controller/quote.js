@@ -52,7 +52,7 @@ const QuoteEdit = async (ctx) => {
  */
 const QuoteInfo = async (ctx) => {
   try {
-    const list = await Quote.findAll();
+    const list = await Quote.findAll({ order: [["createdAt", "DESC"]] });
     const item = list[Math.floor(Math.random() * list.length)];
     ctx.success(item);
   } catch (error) {
@@ -69,6 +69,7 @@ const QuoteList = async (ctx) => {
     const { count, rows } = await Quote.findAndCountAll({
       offset,
       limit,
+      order: [["createdAt", "DESC"]],
     });
     ctx.success({
       rows,

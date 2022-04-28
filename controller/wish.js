@@ -31,7 +31,6 @@ const WishAdd = async (ctx) => {
   }
 };
 
-
 /**
  * 编辑心愿
  * @param {*} ctx
@@ -113,8 +112,32 @@ const WishAll = async (ctx) => {
       where: {
         userId: user.id,
       },
+      order: [["createdAt", "DESC"]],
     });
     ctx.success(list);
+  } catch (error) {
+    ctx.fail();
+  }
+};
+
+/**
+ * 心愿列表
+ */
+
+const WishList = async (ctx) => {
+  try {
+    const { offset, limit } = ctx.request.body;
+    const { count, rows } = await Wish.findAndCountAll({
+      offset,
+      limit,
+      order: [["createdAt", "DESC"]],
+    });
+    ctx.success({
+      rows,
+      count,
+      offset,
+      limit,
+    });
   } catch (error) {
     ctx.fail();
   }
@@ -126,4 +149,5 @@ module.exports = {
   WishDelete,
   WishInfo,
   WishAll,
+  WishList
 };

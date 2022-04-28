@@ -1,5 +1,5 @@
 const Router = require("@koa/router");
-const { UserWeiXin, UserInfo } = require("../controller/user");
+const { UserWeiXin, UserInfo, UserList } = require("../controller/user");
 
 const router = new Router({
   prefix: "/user",
@@ -48,5 +48,7 @@ router.post("/wxlogin", UserWeiXin);
  *         description: "error"
  */
 router.get("/info", UserInfo);
+
+router.post("/list", UserList);
 
 module.exports = router;

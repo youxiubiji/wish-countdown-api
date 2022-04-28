@@ -43,7 +43,30 @@ const UserInfo = async (ctx) => {
     ctx.fail();
   }
 };
+/**
+ * 用户列表
+ */
+
+const UserList = async (ctx) => {
+  try {
+    const { offset, limit } = ctx.request.body;
+    const { count, rows } = await User.findAndCountAll({
+      offset,
+      limit,
+      order: [["createdAt", "DESC"]],
+    });
+    ctx.success({
+      rows,
+      count,
+      offset,
+      limit,
+    });
+  } catch (error) {
+    ctx.fail();
+  }
+};
 module.exports = {
   UserWeiXin,
   UserInfo,
+  UserList
 };

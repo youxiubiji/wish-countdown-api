@@ -1,8 +1,8 @@
-const Router = require("@koa/router");
-const { UserWeiXin, UserInfo, UserList } = require("../controller/user");
+const Router = require('@koa/router');
+const { UserWeiXin, UserInfo, UserList, UserQq } = require('../controller/user');
 
 const router = new Router({
-  prefix: "/user",
+    prefix: '/user',
 });
 
 /**
@@ -28,7 +28,8 @@ const router = new Router({
  *       "500":
  *         description: "error"
  */
-router.post("/wxlogin", UserWeiXin);
+router.post('/wxlogin', UserWeiXin);
+router.post('/qqlogin', UserQq);
 
 /**
  * @swagger
@@ -47,8 +48,8 @@ router.post("/wxlogin", UserWeiXin);
  *       "500":
  *         description: "error"
  */
-router.get("/info", UserInfo);
+router.get('/info', UserInfo);
 
-router.post("/list", UserList);
+router.post('/list', UserList);
 
 module.exports = router;

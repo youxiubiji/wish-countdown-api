@@ -67,7 +67,7 @@ const QuoteList = async (ctx) => {
   try {
     const { offset, limit } = ctx.request.body;
     const { count, rows } = await Quote.findAndCountAll({
-      offset,
+      offset: (offset - 1) * limit,
       limit,
       order: [["createdAt", "DESC"]],
     });

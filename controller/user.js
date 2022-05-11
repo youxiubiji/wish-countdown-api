@@ -70,7 +70,7 @@ const UserList = async ctx => {
     try {
         const { offset, limit } = ctx.request.body;
         const { count, rows } = await User.findAndCountAll({
-            offset,
+            offset:(offset - 1) * limit,
             limit,
             order: [['createdAt', 'DESC']],
         });

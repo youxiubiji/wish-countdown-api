@@ -128,7 +128,7 @@ const WishList = async (ctx) => {
   try {
     const { offset, limit } = ctx.request.body;
     const { count, rows } = await Wish.findAndCountAll({
-      offset,
+      offset:(offset - 1) * limit,
       limit,
       order: [["createdAt", "DESC"]],
     });

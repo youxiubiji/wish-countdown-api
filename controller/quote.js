@@ -12,7 +12,6 @@ const QuoteAdd = async (ctx) => {
         content,
       },
       defaults: {
-        content,
         author,
       },
     });

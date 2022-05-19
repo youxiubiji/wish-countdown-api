@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 //文件上传限制
 const limits = {
     fields: 10, //非文件字段的数量
-    fileSize: 2 * 1024 * 1024, //文件大小 单位 M
+    fileSize: 20 * 1024 * 1024, //文件大小 单位 M
     files: 1, //文件数量
 }
 

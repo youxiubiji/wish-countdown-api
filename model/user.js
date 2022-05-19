@@ -13,7 +13,6 @@ User.init(
     },
     openid: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false,
     },
     platform: {

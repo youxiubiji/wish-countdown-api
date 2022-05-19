@@ -7,7 +7,7 @@ const userUtil = require("../utils/user");
  */
 const WishAdd = async (ctx) => {
   try {
-    const { title, date } = ctx.request.body;
+    const { title, date, wishType, dateType } = ctx.request.body;
     const { authorization } = ctx.header;
     const user = await userUtil.verifyToken(
       authorization.replace("Bearer ", "")
@@ -16,9 +16,11 @@ const WishAdd = async (ctx) => {
       where: {
         title,
         userId: user.id,
+        wishType,
       },
       defaults: {
         date,
+        dateType,
       },
     });
     if (created) {
@@ -37,17 +39,18 @@ const WishAdd = async (ctx) => {
  */
 const WishEdit = async (ctx) => {
   try {
-    const { id, title, date } = ctx.request.body;
+    const { id, title, date, wishType, dateType } = ctx.request.body;
     const { authorization } = ctx.header;
     const user = await userUtil.verifyToken(
       authorization.replace("Bearer ", "")
     );
     await Wish.update(
-      { title, date },
+      { title, date, dateType },
       {
         where: {
           id,
           userId: user.id,
+          wishType,
         },
       }
     );
@@ -128,7 +131,7 @@ const WishList = async (ctx) => {
   try {
     const { offset, limit } = ctx.request.body;
     const { count, rows } = await Wish.findAndCountAll({
-      offset:(offset - 1) * limit,
+      offset: (offset - 1) * limit,
       limit,
       order: [["createdAt", "DESC"]],
     });
@@ -149,5 +152,5 @@ module.exports = {
   WishDelete,
   WishInfo,
   WishAll,
-  WishList
+  WishList,
 };

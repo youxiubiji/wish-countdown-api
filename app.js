@@ -89,16 +89,21 @@ app.use(bodyParser());
 app.use(parameter(app));
 
 // router
-const users = require('./routes/user');
-// const upload = require("./routes/upload");
+// const users = require('./routes/user');
+const upload = require("./routes/upload");
 const wish = require('./routes/wish');
 const quote = require('./routes/quote');
 const account = require('./routes/account');
-app.use(users.routes(), users.allowedMethods());
-// app.use(upload.routes(), upload.allowedMethods());
+const holiday = require('./routes/holiday')
+
+
+
+// app.use(users.routes(), users.allowedMethods());
+app.use(upload.routes(), upload.allowedMethods());
 app.use(wish.routes(), wish.allowedMethods());
 app.use(quote.routes(), quote.allowedMethods());
 app.use(account.routes(), account.allowedMethods());
+app.use(holiday.routes(),holiday.allowedMethods());
 
 // 应用日志
 app.on('error', (err, ctx) => {
